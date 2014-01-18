@@ -1,0 +1,62 @@
+Hi All,
+
+If I may send the contents of the sheet of paper that we used tonight:
+
+Working Title: DogFit
+-----------------------------
+
+Functions:
+--------------
+
+-Movement of dog
+-Feeding bowl proximity
+- Data logging
+-Path tracking
+-Max speed
+-Mass/Force/Energy burned
+-Show lazy = red, OK = blue, busy = green
+-Display key data on small screen
+-Attach to dog, e.g. belt/collar
+
+Available parts:
+-------------------
+
+Dog? Chicken? Cat? (Jeff, Aaron?)
+Screen
+Bluetooth device
+Memory core
+6 axis accel/gyro
+Arduino basic module
+Timer module
+LEDs (via Jeff?)
+Fabric, bands, collar (via Katy?)
+
+Milestones:
+---------------
+
+1) Get text to display (done)
+2) Display current accel/gyro readings on screen (partially done with z-axis data)
+3) Display current speed and cumulative distance traversed on screen
+4) Store speed, accel, distance over time for later display in graph or so
+5) Download data into i-phone and display graph, AND/OR display some or all of that data on small screen AND/OR with LEDs
+6)?
+
+Points to note:
+------------------
+
+-Requires some calculation, e.g. v = a x t (integrated over time since a is not constant) d = v x t. Time has to be set (or set-able) e.g. for demo 1 minute maybe
+-We do not make use of gyro data so far
+-We had a small problem in milestone 2, the program seemed to stop after a few seconds
+-Small issues with variable transformation, e.g. float to string
+-We will probably have about 5 min to present the project, we should allow some time to practice this a little to make sure it runs smooth, especially if animals are involved
+-It may be more important to have a completed project that is simple, than having a fancy project that is not complete
+-Live animal may be very useful to have
+
+Other ideas:
+----------------
+
+-
+??
+-Could this be made into a fitness or gold device, measuring quickness and extent of hip turn for example?
+
+How much is missing? Comments? Ideas? Did I get everyone's email right?
