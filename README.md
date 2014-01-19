@@ -11,6 +11,9 @@ The DAUG carrier gives realtime feedback through six Neopixel LEDs.  Red means t
 The IOS app also displays a meter rating your dog against other breeds.
 
 
+
+
+
 Materials Needed
 ------------------
 Material to create the DAUG Carrier
@@ -32,5 +35,9 @@ Adafruit V2 NeoPixels
 Ipad
 
 A small breed dog
+
+The iOS code is build using cocopods, you will need to have this installed and configured. 
+
+
 
 
