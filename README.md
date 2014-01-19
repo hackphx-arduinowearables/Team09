@@ -14,14 +14,23 @@ The IOS app also displays a meter rating your dog against other breeds.
 Materials Needed
 ------------------
 Material to create the DAUG Carrier
+
 Conductive thread
+
 Xadow Mainboard
+
 Xadow BLE Slave
+
 Xadow Breakout Board
+
 Xadow 6DOF IMU
+
 Xadow Battery
+
 Adafruit V2 NeoPixels
+
 Ipad
+
 A small breed dog
 
 
