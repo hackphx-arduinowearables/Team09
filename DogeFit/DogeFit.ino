@@ -4,8 +4,17 @@
 
 #include <GSM.h>
 
+
 #include <MPU6050.h>//add neccesary headfiles
 #include <Wire.h>
+#include <Adafruit_NeoPixel.h>
+
+// DEFINES for Adafruit NEopixel
+
+#define N_PIXELS 1
+#define LED_PIN 9
+
+
 //====the offset of gyro===========
 #define Gx_offset  -1.50
 #define Gy_offset  0
@@ -16,6 +25,9 @@
 #define Az_offset 0.14
 //====================
 MPU6050 accelgyro;
+
+Adafruit_NeoPixel  strip = Adafruit_NeoPixel(N_PIXELS, LED_PIN, NEO_GRB + NEO_KHZ800);
+
  
 int test_int = 9;
 int16_t ax,ay,az;//original data;
@@ -31,6 +43,9 @@ float DAUG;
  
 void setup()
 {
+  strip.setBrightness(255);
+  strip.setPixelColor(i,   50,   0, 50);
+  strip.show();
   Wire.begin();
   Serial.begin(9600);
    Serial1.begin(38400);
