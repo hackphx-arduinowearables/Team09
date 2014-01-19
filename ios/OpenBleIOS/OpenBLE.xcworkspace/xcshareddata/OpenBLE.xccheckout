@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>8CF3EC11-30B6-4D1A-A67C-01D637125EAB</string>
+	<string>EB1C7DC9-832D-48DB-B6C2-C1D5BA264882</string>
 	<key>IDESourceControlProjectName</key>
 	<string>OpenBLE</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>081E465E-5D34-4379-AD49-9E4C069B8910</key>
-		<string>ssh://github.com/OpenBLE/OpenBLE.git</string>
+		<key>B998DEA8-1730-43DB-ADB2-2448920911CD</key>
+		<string>https://github.com/hackPHX-ArduinoWearables/Team09.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>examples/OpenBle/OpenBLE.xcworkspace</string>
+	<string>ios/OpenBleIOS/OpenBLE.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>081E465E-5D34-4379-AD49-9E4C069B8910</key>
+		<key>B998DEA8-1730-43DB-ADB2-2448920911CD</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/OpenBLE/OpenBLE.git</string>
+	<string>https://github.com/hackPHX-ArduinoWearables/Team09.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>081E465E-5D34-4379-AD49-9E4C069B8910</string>
+	<string>B998DEA8-1730-43DB-ADB2-2448920911CD</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>081E465E-5D34-4379-AD49-9E4C069B8910</string>
+			<string>B998DEA8-1730-43DB-ADB2-2448920911CD</string>
 			<key>IDESourceControlWCCName</key>
-			<string>OpenBLE</string>
+			<string>Team09</string>
 		</dict>
 	</array>
 </dict>

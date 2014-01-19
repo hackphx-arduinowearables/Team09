@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LeDataService.h"
 #import "LeDiscovery.h"
+#import "scoreboardView.h"
 
 @interface DetailViewController : UIViewController  <LeDiscoveryDelegate, LeServiceDelegate, LeDataProtocol>
 
@@ -19,6 +20,9 @@
 @property (strong, nonatomic) IBOutlet UIScrollView     *scrollView;
 @property (strong, nonatomic) UITextField               *activeField;
 @property (strong, nonatomic) UIButton                  *sendButton;
+@property (strong, nonatomic) NSNumber *daugs;
+@property (weak,nonatomic) IBOutlet UILabel *daugLabel;
+@property (weak,nonatomic) IBOutlet scoreboardView *scoreboardView;
 
 -(IBAction)send:(id)sender;
 -(IBAction)textFieldDidBeginEditing:(UITextField *)textField;

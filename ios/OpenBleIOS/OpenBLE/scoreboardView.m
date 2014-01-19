@@ -1,14 +1,14 @@
 //
-//  ScoreBoardView.m
+//  scoreboardView.m
 //  OpenBLE
 //
 //  Created by Jeffrey Kunzelman on 1/18/14.
 //  Copyright (c) 2014 Apple Inc. All rights reserved.
 //
 
-#import "ScoreBoardView.h"
+#import "scoreboardView.h"
 
-@implementation ScoreBoardView
+@implementation scoreboardView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -19,10 +19,24 @@
     return self;
 }
 
+-(void) drawBar
+{
+    UIColor* color2 = [UIColor colorWithRed: 0.886 green: 0 blue: 0 alpha: 1];
+
+    UIBezierPath* rectangle2Path = [UIBezierPath bezierPathWithRect: CGRectMake(27.5, 119.5, 63, [_score floatValue])];
+    [color2 setFill];
+    [rectangle2Path fill];
+    [[UIColor clearColor] setStroke];
+    rectangle2Path.lineWidth = 1;
+    [rectangle2Path stroke];
+}
+
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    // Drawing code
     //// General Declarations
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -133,10 +147,10 @@
     
     
     //// Rectangle 2 Drawing
-    UIBezierPath* rectangle2Path = [UIBezierPath bezierPathWithRect: CGRectMake(27.5, 119.5, 63, 230)];
+    UIBezierPath* rectangle2Path = [UIBezierPath bezierPathWithRect: CGRectMake(27.5 , 119.5+ 230 - [_score floatValue], 63, [_score floatValue])];
     [color2 setFill];
     [rectangle2Path fill];
-    [[UIColor blackColor] setStroke];
+    [[UIColor clearColor] setStroke];
     rectangle2Path.lineWidth = 1;
     [rectangle2Path stroke];
     
@@ -205,6 +219,7 @@
     CGGradientRelease(gradient);
     CGColorSpaceRelease(colorSpace);
     
+
 
 }
 

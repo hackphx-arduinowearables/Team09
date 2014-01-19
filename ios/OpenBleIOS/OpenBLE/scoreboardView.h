@@ -1,5 +1,5 @@
 //
-//  ScoreBoardView.h
+//  scoreboardView.h
 //  OpenBLE
 //
 //  Created by Jeffrey Kunzelman on 1/18/14.
@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScoreBoardView : UIView
+@interface scoreboardView : UIView
+
+
+@property (strong, nonatomic) NSNumber *score;
+
+-(void) drawBar;
 
 @end
