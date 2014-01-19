@@ -1,3 +1,5 @@
+
+
 #include <SeeedOLED.h>
 
 #include <I2Cdev.h>
@@ -11,8 +13,8 @@
 
 // DEFINES for Adafruit NEopixel
 
-#define N_PIXELS 1
-#define LED_PIN 9
+#define N_PIXELS 6
+#define LED_PIN 15
 
 
 //====the offset of gyro===========
@@ -37,19 +39,19 @@ float Gx,Gy,Gz;//Unit ï¿½ï¿½/s
 float Vx, Vy, Vz, Vplane;
 float Dx, Dy, Dz;
 int Time; float Time_s;
-float DAUG;
+float DAUG, DAUGScore;
+
 //#define LED_PIN 13 
 //bool blinkState=false;
  
 void setup()
 {
-  strip.setBrightness(255);
-  strip.setPixelColor(i,   50,   0, 50);
-  strip.show();
+  strip.setBrightness(100);
+  strip.begin();
   Wire.begin();
   Serial.begin(9600);
    Serial1.begin(38400);
-
+  
   Serial.println("Initializing I2C device.....");
   accelgyro.initialize();
   
@@ -62,7 +64,7 @@ void setup()
   SeeedOled.init();  //initialze SEEED OLED display
   DDRB|=0x21;        
   PORTB |= 0x21;
-
+DAUGScore = 0;
   SeeedOled.clearDisplay();          //clear the screen and set start position to top left corner
   SeeedOled.setNormalDisplay();      //Set display to normal mode (i.e non-inverse mode)
   SeeedOled.setPageMode();           //Set addressing mode to Page Mode
@@ -75,7 +77,8 @@ void setup()
 
 void loop()
 {
-  
+  strip.setPixelColor(0,   100,   50, 50);
+  strip.show();
   accelgyro.getMotion6(&ax,&ay,&az,&gx,&gy,&gz);//get the gyro and accelarator   
    //==========accelerator================================
    Ax=ax/16384.00;//to get data of unit(g)
@@ -88,7 +91,29 @@ void loop()
  //Calculating dog activity units in units of gravity, subtracting gravity (1 = One unit of g) so that only activity beyond standing and lying is counted
  //DAUG is the scalar sum of the acceleration in x, y and z directions (minus gravity)
  //DAUG cannot be smaller than 0
+ 
   DAUG = max(sqrt(pow(Ax+Ax_offset,2) + pow(Ay+Ay_offset,2) + pow(Az+Az_offset,2)) - 1,0);
+  DAUGScore = DAUGScore + DAUG;
+  
+  if(DAUGScore < 100) {
+  for(int i ; i< N_PIXELS; i++)
+    {
+      strip.setPixelColor(i,255,0, 0);
+    }
+  }
+   else if (DAUGScore <5000){
+    for(int i ; i< N_PIXELS; i++)
+    {
+      strip.setPixelColor(i,0,0, 255);
+    }
+  }
+  else {  for(int i ; i< N_PIXELS; i++)
+    {
+      strip.setPixelColor(i,0,255, 0);
+    }
+  }
+  strip.show();
+  
   char tmp[25];
   dtostrf(DAUG, 3, 2, &tmp[1]);
   SeeedOled.setTextXY(0,8);
