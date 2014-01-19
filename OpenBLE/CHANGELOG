@@ -1,0 +1,9 @@
+# Changelog
+
+## Version 0.0.3
+
+*Added didWriteFromService callback when ack received for devices that support writewithresponse, or after we write for devices that don't. Allows proper async patterns for metering sends.
+
+## Version 0.0.2
+
+*Moved repo out of personal to new Organization
