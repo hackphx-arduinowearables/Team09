@@ -47,6 +47,9 @@
     
     scrollView.contentSize = newContentSize;
     //end
+    
+    self.daugs = @0;
+    _daugLabel.text = [NSString stringWithFormat:@"%i",_daugs.integerValue ];
 
     
     currentlyConnectedSensor.text = [[currentlyDisplayingService peripheral] name];
@@ -103,6 +106,13 @@
     NSString* newStr2 = [[NSString alloc] initWithFormat:@"> %@",newStr] ;
 
     [response setText:[newStr2 stringByAppendingString:response.text]];
+    
+    if (!([newStr isEqualToString:@"Zilch"]))
+    {
+        int pastDaugs = [_daugs intValue];
+        self.daugs = [NSNumber numberWithInt:pastDaugs +1];
+        _daugLabel.text = [NSString stringWithFormat:@"%i",_daugs.integerValue ];
+    }
     
 }
 

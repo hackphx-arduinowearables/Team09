@@ -19,6 +19,8 @@
 @property (strong, nonatomic) IBOutlet UIScrollView     *scrollView;
 @property (strong, nonatomic) UITextField               *activeField;
 @property (strong, nonatomic) UIButton                  *sendButton;
+@property (strong, nonatomic) NSNumber *daugs;
+@property (weak,nonatomic) IBOutlet UILabel *daugLabel;
 
 -(IBAction)send:(id)sender;
 -(IBAction)textFieldDidBeginEditing:(UITextField *)textField;
