@@ -55,58 +55,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="GDs-1h-6ge">
-                                <rect key="frame" x="0.0" y="-88" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <view contentMode="scaleToFill" id="5g1-Lw-LfF" customClass="scoreboardView">
+                                <rect key="frame" x="40" y="69" width="240" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="input" minimumFontSize="17" clearButtonMode="whileEditing" id="2zU-MM-NDF">
-                                        <rect key="frame" x="31" y="186" width="201" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="send"/>
-                                        <connections>
-                                            <action selector="send:" destination="ppv-KU-Dfg" eventType="editingDidEnd" id="PPX-x1-XGQ"/>
-                                            <action selector="send:" destination="ppv-KU-Dfg" eventType="editingDidEndOnExit" id="ltL-Wi-EBk"/>
-                                            <action selector="textFieldDidBeginEditing:" destination="ppv-KU-Dfg" eventType="editingDidBegin" id="eLS-AQ-kRC"/>
-                                            <action selector="textFieldDidEndEditing:" destination="ppv-KU-Dfg" eventType="editingDidEnd" id="QGi-dk-7if"/>
-                                            <outlet property="delegate" destination="ppv-KU-Dfg" id="qoP-06-wEO"/>
-                                        </connections>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Hu-rF-3sX">
-                                        <rect key="frame" x="254" y="186" width="36" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Send">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="send:" destination="ppv-KU-Dfg" eventType="touchUpInside" id="Lpz-uh-boM"/>
-                                        </connections>
-                                    </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="lJR-fr-hck">
-                                        <rect key="frame" x="31" y="232" width="259" height="316"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Daugs: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5j9-S3-cL0">
-                                        <rect key="frame" x="36" y="157" width="123" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Daugs: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aAq-Cy-rMZ">
-                                        <rect key="frame" x="167" y="157" width="123" height="21"/>
+                                        <rect key="frame" x="0.0" y="379" width="123" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                            </scrollView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Device View" id="jp9-4p-yK0">
                         <barButtonItem key="leftBarButtonItem" title="back" id="q1Z-DU-hVd">
@@ -116,10 +80,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="daugLabel" destination="aAq-Cy-rMZ" id="Vug-Mg-c0u"/>
-                        <outlet property="input" destination="2zU-MM-NDF" id="f6a-sD-fbe"/>
-                        <outlet property="response" destination="lJR-fr-hck" id="UIa-Y6-f2x"/>
-                        <outlet property="scrollView" destination="GDs-1h-6ge" id="1Ug-gS-qlP"/>
+                        <outlet property="daugLabel" destination="5j9-S3-cL0" id="eER-mW-Ob0"/>
+                        <outlet property="scoreboardView" destination="5g1-Lw-LfF" id="mID-mo-zZS"/>
                     </connections>
                 </viewController>
                 <exit id="zkw-BM-qPF" userLabel="Exit" sceneMemberID="exit"/>
@@ -143,7 +105,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9qN-uE-cJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="379" y="292"/>
+            <point key="canvasLocation" x="270" y="281"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

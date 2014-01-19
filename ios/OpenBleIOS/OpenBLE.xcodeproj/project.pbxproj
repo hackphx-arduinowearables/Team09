@@ -20,6 +20,7 @@
 		5B4BCB4718321ECD00ADAE0E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B4BCB4518321ECD00ADAE0E /* MainStoryboard.storyboard */; };
 		5B4BCB48183220F200ADAE0E /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA1100418321D1E00A5398C /* CoreBluetooth.framework */; };
 		EE86C0A9188B576E00754946 /* Storyboard-ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE86C0A8188B576E00754946 /* Storyboard-ipad.storyboard */; };
+		EE86C0AC188B5AC100754946 /* scoreboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE86C0AB188B5AC100754946 /* scoreboardView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		B9182536148D762600D6064E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B9182538148D762600D6064E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EE86C0A8188B576E00754946 /* Storyboard-ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard-ipad.storyboard"; sourceTree = "<group>"; };
+		EE86C0AA188B5AC100754946 /* scoreboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scoreboardView.h; sourceTree = "<group>"; };
+		EE86C0AB188B5AC100754946 /* scoreboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scoreboardView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 				5B4BCB3918321E8500ADAE0E /* DetailViewController.m */,
 				5B158E7A18321E53006EE7C2 /* Images.xcassets */,
 				5B158E6F18321E53006EE7C2 /* Supporting Files */,
+				EE86C0AA188B5AC100754946 /* scoreboardView.h */,
+				EE86C0AB188B5AC100754946 /* scoreboardView.m */,
 			);
 			path = OpenBLE;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				5B158E7918321E53006EE7C2 /* AppDelegate.m in Sources */,
 				5B158E7518321E53006EE7C2 /* main.m in Sources */,
 				5B4BCB3E18321E8500ADAE0E /* DetailViewController.m in Sources */,
+				EE86C0AC188B5AC100754946 /* scoreboardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +287,7 @@
 					"/Users/jacobrosenthal/Documents/Code/OpenBLE/examples/OpenBle/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -310,7 +316,7 @@
 					"/Users/jacobrosenthal/Documents/Code/OpenBLE/examples/OpenBle/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

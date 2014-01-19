@@ -50,8 +50,11 @@
     
     self.daugs = @0;
     _daugLabel.text = [NSString stringWithFormat:@"%i",_daugs.integerValue ];
-
     
+    self.scoreboardView.score = @0;
+    //[_scoreboardView drawBar];
+    [_scoreboardView setNeedsDisplay];
+
     currentlyConnectedSensor.text = [[currentlyDisplayingService peripheral] name];
 }
 
@@ -105,15 +108,20 @@
     
     NSString* newStr2 = [[NSString alloc] initWithFormat:@"> %@",newStr] ;
 
-    [response setText:[newStr2 stringByAppendingString:response.text]];
+    //[response setText:[newStr2 stringByAppendingString:response.text]];
     
     if (!([newStr isEqualToString:@"Zilch"]))
     {
         int pastDaugs = [_daugs intValue];
         self.daugs = [NSNumber numberWithInt:pastDaugs +1];
         _daugLabel.text = [NSString stringWithFormat:@"%i",_daugs.integerValue ];
+        
+        self.scoreboardView.score = _daugs;
+        [_scoreboardView drawBar];
+        [_scoreboardView setNeedsDisplay];
     }
     
+    NSLog(newStr);
 }
 
 //if your service supports writewithresponse, this confirms the data was received with ack
