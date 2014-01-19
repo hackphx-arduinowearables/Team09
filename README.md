@@ -18,6 +18,8 @@ Materials Needed
 ------------------
 Material to create the DAUG Carrier
 
+Simplicity Sewing Pattern A2013 (http://sewing.patternreview.com/Patterns/49641)
+
 Conductive thread
 
 Xadow Mainboard
