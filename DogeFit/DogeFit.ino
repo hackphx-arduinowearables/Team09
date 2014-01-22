@@ -1,7 +1,12 @@
-#include <GSM.h>
-#include <MPU6050.h>// includes I2Cdev.h
+// IMU 
+#include <I2Cdev.h>
+#include <MPU6050.h>
+
 #include <Wire.h>
+
 #include <Adafruit_NeoPixel.h>
+
+#include <GSM.h>
 
 // DEFINES for Adafruit NEopixel
 define N_PIXELS 6
@@ -15,19 +20,19 @@ define N_PIXELS 6
 #define Ay_offset 0.02
 #define Az_offset 0.14
 //====================
-MPU6050 accelgyro;
 
+MPU6050 accelgyro;
 Adafruit_NeoPixel  strip = Adafruit_NeoPixel(N_PIXELS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
- 
 int16_t ax,ay,az;//original data;
 int16_t gx,gy,gz;//original data;
 float Ax,Ay,Az, Aplane, Azplane;//Unit g(9.8m/s^2)
-float Gx,Gy,Gz;//Unit ï¿½ï¿½/s
+float Gx,Gy,Gz;//Unit 
 float Vx, Vy, Vz, Vplane;
 float Dx, Dy, Dz;
-int Time; float Time_s;
-float DAUG, DAUGScore;
+
+float DAUG, DAUGScore, Time_s;
+int Time;
 
 void setup()
 {
@@ -56,9 +61,7 @@ void setup()
 
 void loop()
 {
-  strip.setPixelColor(0,   100,   50, 50);
-  strip.show();
-  accelgyro.getMotion6(&ax,&ay,&az,&gx,&gy,&gz);//get the gyro and accelarator   
+   accelgyro.getMotion6(&ax,&ay,&az,&gx,&gy,&gz);//get the gyro and accelarator   
    //==========accelerator================================
    Ax=ax/16384.00;//to get data of unit(g)
    Ay=ay/16384.00;//to get data of unit(g)
@@ -131,3 +134,25 @@ void loop()
   delay(Time);//control time of sampling
 }
 
+void SetLeds()
+{
+if(DAUGScore < 100) {
+  for(int i ; i< N_PIXELS; i++)
+    {
+      strip.setPixelColor(i,255,0, 0);
+    }
+  }
+   else if (DAUGScore <5000){
+    for(int i ; i< N_PIXELS; i++)
+    {
+      strip.setPixelColor(i,0,0, 255);
+    }
+  }
+  else {  for(int i ; i< N_PIXELS; i++)
+    {
+      strip.setPixelColor(i,0,255, 0);
+    }
+  }
+  strip.show();
+  
+}
