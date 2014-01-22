@@ -6,10 +6,10 @@
 
 #include <Adafruit_NeoPixel.h>
 
-#include <GSM.h>
+//#include <GSM.h>
 
 // DEFINES for Adafruit NEopixel
-define N_PIXELS 6
+#define N_PIXELS 6
 #define LED_PIN 15
 //====the offset of gyro===========
 #define Gx_offset  -1.50
@@ -56,12 +56,19 @@ void setup()
   Time = 100; 
   Time_s = Time/1000; //first in milliseconds, second in seconds 
   DAUGScore = 0;
-
 }
 
 void loop()
 {
-   accelgyro.getMotion6(&ax,&ay,&az,&gx,&gy,&gz);//get the gyro and accelarator   
+  CalculateDaugs(); 
+  SetLeds();
+  SendDaugsOverBT();
+   
+  delay(Time);//control time of sampling
+}
+
+void CalculateDaugs(){
+accelgyro.getMotion6(&ax,&ay,&az,&gx,&gy,&gz);//get the gyro and accelarator   
    //==========accelerator================================
    Ax=ax/16384.00;//to get data of unit(g)
    Ay=ay/16384.00;//to get data of unit(g)
@@ -76,36 +83,35 @@ void loop()
  
   DAUG = max(sqrt(pow(Ax+Ax_offset,2) + pow(Ay+Ay_offset,2) + pow(Az+Az_offset,2)) - 1,0);
   DAUGScore = DAUGScore + DAUG;
-  
+}
+
+void SetLeds()
+{
   if(DAUGScore < 100) {
-  for(int i ; i< N_PIXELS; i++)
-    {
-      strip.setPixelColor(i,255,0, 0);
+    for(int i =0; i< N_PIXELS; i++)
+      {
+        strip.setPixelColor(i,255,0, 0);
+      }
     }
-  }
-   else if (DAUGScore <5000){
-    for(int i ; i< N_PIXELS; i++)
-    {
-      strip.setPixelColor(i,0,0, 255);
+    else if (DAUGScore <5000){
+      for(int i =0; i< N_PIXELS; i++)
+      {
+        strip.setPixelColor(i,0,0, 255);
+      }
     }
-  }
-  else {  for(int i ; i< N_PIXELS; i++)
-    {
-      strip.setPixelColor(i,0,255, 0);
+    else {  
+      for(int i =0; i< N_PIXELS; i++)
+      {
+        strip.setPixelColor(i,0,255, 0);
+      }
     }
-  }
-  strip.show();
-  
+    strip.show();
+}
+
+void SendDaugsOverBT()
+{
   char tmp[25];
   dtostrf(DAUG, 3, 2, &tmp[1]);
-  SeeedOled.setTextXY(0,8);
-  SeeedOled.putString(tmp);
-  //Serial1.write("DAUG =");
-  //Serial1.write(tmp);
-  
-  //Send DAUGs to bluetooth
-  //==============================================
-  
   if(DAUG > 0.2)//above threshold, send value
   {
     //Serial1.write("DAUG =");
@@ -115,44 +121,4 @@ void loop()
   {
     Serial1.write("Zilch");
   }
-  
-    delay(Time);//control time of sampling
-  
-   //SeeedOled.putString("%f", Az); //Print the String
-   //===============gyro================================
-   //Gx=gx/131.00;
-   //Gy=gy/131.00;
-   //Gz=gz/131.00;
-  // Serial.println("Gyro data.....");
-  // Serial.print(Gx+Gx_offset);
-  // Serial.print("   ");
-  // Serial.print(Gy+Gy_offset);
-  // Serial.print("   ");
-  // Serial.println(Gz+Gz_offset);
-  //blinkState=!blinkState;
-  //digitalWrite(LED_PIN,blinkState); 
-  delay(Time);//control time of sampling
-}
-
-void SetLeds()
-{
-if(DAUGScore < 100) {
-  for(int i ; i< N_PIXELS; i++)
-    {
-      strip.setPixelColor(i,255,0, 0);
-    }
-  }
-   else if (DAUGScore <5000){
-    for(int i ; i< N_PIXELS; i++)
-    {
-      strip.setPixelColor(i,0,0, 255);
-    }
-  }
-  else {  for(int i ; i< N_PIXELS; i++)
-    {
-      strip.setPixelColor(i,0,255, 0);
-    }
-  }
-  strip.show();
-  
 }
